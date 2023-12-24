@@ -1,0 +1,12 @@
+---
+# tasks file for /etc/ansible/roles/docker-install
+- name: Update all packages to their latest version when OS is Ubuntu20.04
+  apt:
+    update_cache: yes
+    force_apt_get: yes
+  when: ansible_facts['distribution'] == "Ubuntu" and ansible_facts['distribution_major_version'] == "20"
+- name: Update all packages to their latest version when OS is Ubuntu22.04
+  apt:
+    update_cache: yes
+    force_apt_get: yes
+  when: ansible_facts['distribution'] == "Ubuntu" and ansible_facts['distribution_major_version'] == "22"
